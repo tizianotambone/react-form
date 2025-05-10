@@ -20,6 +20,16 @@ function ToDoList() {
 
     const addArticle = (e) => {
         e.preventDefault();
+
+        if(articolo == ''){
+            alert("Inserisci un valore valido");
+            return;
+        }
+        if(articoli.includes(articolo)){
+            alert("articolo già presente");
+            return;
+        }
+
         setArticles([...articoli, articolo]);
         setArticolo("");
     }

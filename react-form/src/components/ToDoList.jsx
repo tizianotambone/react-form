@@ -33,13 +33,23 @@ function ToDoList() {
         setArticles([...articoli, articolo]);
         setArticolo("");
     }
+    
+    // funzione per rimuovere un articolo
+    const removeArticle = (i) => {
+        // filtro gli articoli per rimuovere quello cliccato con l'indice i
+        let newListArticoli = articoli.filter((e, index) => index !== i);
+        // setto la nuova lista di articoli
+        setArticles(newListArticoli);
+    }
 
   return (
     <>
     {
+        // mappa gli articoli e li mostra in una lista
         articoli.map((articolo, index) => (
             <ul>
-                <li key={index}>{articolo}</li>
+                {/*per ogni articolo crea un elemento <li> con il titolo dell'articolo */}
+                <li key={index}>{articolo}</li> <button onClick={()=>{removeArticle(index)}}>&#128465;</button>
             </ul>
         ))
     }
